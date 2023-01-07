@@ -25,7 +25,9 @@ function renderCode(origRule, options) {
 			.replaceAll('"', '&quot;')
 			.replaceAll("'", "&lt;");
 		const origRendered = origRule(...args);
-
+                if (origRendered.includes('language-mermaid')){
+                     return origRendered;
+                }
 		if (content.length === 0)
 			return origRendered;
 
